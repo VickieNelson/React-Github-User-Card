@@ -16,12 +16,15 @@ class App extends React.Component {
   componentDidMount() {
     axios.get("https://api.github.com/users/VickieNelson").then((res1) => {
       console.log(res1.data);
-      axios.get(res1.data.followers_url).then((res2) => {
+      this.setState({
+        user: res1.data,
+      });
+      axios.get(this.state.user.followers_url).then((res2) => {
         console.log(res2.data);
         this.setState({
-          user: res1.data,
           followers: res2.data,
         });
+        console.log(this.state.followers);
       });
     });
   }

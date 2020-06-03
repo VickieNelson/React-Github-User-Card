@@ -17,8 +17,9 @@ const Box = styled.div`
   allign-items: center;
 `;
 const Img = styled.img`
-  width: 10rem;
+  width: 9rem;
   height: auto;
+  padding: 5%;
 `;
 export default function Card(props) {
   return (
@@ -26,7 +27,7 @@ export default function Card(props) {
       <Img src={props.userImg} />
       <h1>{props.name}</h1>
       <h2>{props.username}</h2>
-      <a href='https://github.com/ChristianCorby'>{props.profile}</a>
+      <a href={`https://github.com/${props.username}`}>{props.profile}</a>
       <h4>Followers {props.followers}</h4>
       <h4>Folowing {props.following}</h4>
       <p>{props.bio}</p>
